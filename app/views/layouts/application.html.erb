@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <link rel='stylesheet' id='parent-css'  href='/css/stargazer.css' type='text/css' media='all' />
+  <link rel='stylesheet' id='style-css'  href='/css/ex-astris.css' type='text/css' media='all' />
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <meta charset="UTF-8" />
+  <title><%=@page_title || 'Jobs @workdistributed'%></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="keywords" content="<%=@page_keywords || 'remote jobs,work distributed,work remote,work from home,remote programming jobs,remote design jobs,remote customer service jobs,remote customer support jobs'%>" />
+  <meta property="og:type" content="remote jobs" />
+  <meta property="og:title" content="<%=@page_title || 'Jobs @workdistributed'%>" />
+  <meta property="og:description" content="<%=@page_description || 'Find companies hiring for remote positions.'%>" />
+  <meta property="og:url" content="<%= request.original_url %>" />
+  <meta property="og:site_name" content="Jobs @WorkDistributed" />
+  <link rel='stylesheet' id='one-five-css'  href='/css/one-five.css' type='text/css' media='all' />
+  <link rel='stylesheet' id='stargazer-fonts-css'  href='//fonts.googleapis.com/css?family=Droid+Serif%3A400%2C700%2C400italic%2C700italic%7COpen+Sans%3A300%2C400%2C600%2C700&#038;ver=3.9.1' type='text/css' media='all' />
+  <link rel='stylesheet' id='googleFonts-css'  href='//fonts.googleapis.com/css?family=Copse&#038;ver=3.9.1' type='text/css' media='all' />
+  <script src="//code.jquery.com/jquery.js"></script>
+  <script type='text/javascript' src='/js/nicedit.js'></script>
+  <script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
+  <style type="text/css" id="custom-colors-css">
+    html,body{height:100%;}
+    .notice {border-radius:.5em;padding:.5em;background:rgba(200,200,255,.5)}
+    .error {border-radius:.5em;padding:.5em;background:rgba(255,200,200,.5)}
+    .premium_ad {margin:0;padding:0 .3em;background:rgba(200,255,200,.8)}
+    .company_link,.company_link:hover,.company_link:visited,.company_link:active {border:0;font-size:.8em; font-weight:800; text-decoration: none;color:#454545;padding-right:10px;}
+    a,a:visited{color:blue;}
+    a:hover, pre, pre code{ color: #111111; }
+    input[type='submit'], input[type='reset'], input[type='button'], button, .page-links a, .comment-reply-link, .comment-reply-login, .wp-calendar td.has-posts a, #menu-sub-terms li a { background-color: rgba( 17, 17, 17, 0.8 ); }
+    legend, mark, pre{ background-color: rgba( 17, 17, 17, 0.1 ); }
+    input[type='submit']:hover, input[type='submit']:focus, input[type='reset']:hover, input[type='reset']:focus, input[type='button']:hover, input[type='button']:focus, button:focus, button:hover{ background-color: #111111; }
+    ::selection { background-color: #111111; }
+  </style>
+  <style type="text/css" id="custom-header-css">body.custom-header #site-title a { color: #252525; }</style>
+  <style type="text/css" id="custom-background-css">
+      body.custom-background { background-image: url('/assets/bg.jpg'); background-repeat: repeat; background-position: left center; background-attachment: fixed; }
+  </style>
+</head>
+
+<body class="wordpress ltr en en-us child-theme y2014 m06 d17 h23 tuesday logged-out custom-background custom-header display-header-text plural home blog custom-colors layout-1c-narrow" dir="ltr" itemscope="itemscope" itemtype="https://schema.org/WebPage">
+
+<div id="container" style="min-height:100%; height: auto !important; height:100%; margin: 0 auto -70px;">
+
+
+  <nav id="menu-primary" class="menu" role="navigation" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement">
+
+    <div class="assistive-text skip-link">
+      <a href="#content">Skip to content</a>
+    </div><!-- .skip-link -->
+
+    <h3 class="menu-toggle">
+      <span class="screen-reader-text">Navigation</span>
+    </h3><!-- .menu-toggle -->
+
+    <div class="wrap"><ul id="menu-primary-items" class="menu-items"><li id="menu-item-9" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9"><a href="http://www.workdistributed.com">Home</a></li>
+      <li id="menu-item-11" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11"><a href="http://blog.workdistributed.com">Blog</a></li>
+      <li id="menu-item-10" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-10 current_page_item current-menu-item menu-item-home"><a href="http://jobs.workdistributed.com">Jobs</a></li>
+    </ul></div>
+  </nav><!-- #menu-primary -->
+
+
+  <div class="wrap">
+
+    <header id="header" role="banner" itemscope="itemscope" itemtype="https://schema.org/WPHeader">
+
+
+      <div id="branding">
+        <br/>
+
+        <h1 id="site-title" itemprop="headline" class="font-headlines"><a href="http://jobs.workdistributed.com" rel="home">Jobs @workdistributed</a></h1>
+
+        <h2 id="site-description" itemprop="description">remote jobs, no recruiters</h2></div><!-- #branding -->
+      <div style="margin:0;padding:0;text-align:center"><a style="float:right;" href="https://twitter.com/WorkDistributed" class="twitter-follow-button" data-align="center" data-show-count="false" data-lang="en" data-size="large">Follow @workdistributed</a></div>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
+
+    </header><!-- #header -->
+
+
+    <div id="main" class="main">
+
+
+
+
+      <main id="content" class="content" role="main" itemprop="mainContentOfPage" itemscope itemtype="https://schema.org/Blog">
+
+        <!--<div style="text-align:center">
+          <p>Follow us to be the first to know about new remote jobs.</p>
+          <p>[social media junk goes here]</p>
+        </div>-->
+
+
+        <% flash.each do |name, msg| -%>
+          <%= content_tag :div, msg, class: name %>
+        <% end -%>
+        <%= yield %>
+
+
+
+
+      </main><!-- #content -->
+
+
+    </div><!-- #main -->
+
+
+  </div><!-- .wrap -->
+
+  <!-- #footer -->
+  <div style="height:70px;"></div>
+</div><!-- #container -->
+<footer id="footer" role="contentinfo" itemscope="itemscope" itemtype="https://schema.org/WPFooter" style="height:46px;">
+
+  <div class="wrap">
+
+    <p class="credit">
+      Copyright &#169; 2014 <a class="site-link" href="http://www.workdistributed.com" rel="home">workdistributed</a>. </p><!-- .credit -->
+
+  </div><!-- .wrap -->
+
+</footer>
+<script type='text/javascript' src='/js/photon.js'></script>
+<script type='text/javascript' src='/js/stargazer.js'></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52152667-1', 'workdistributed.com');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<p style="font-weight:400">
+  <%= form_tag({controller: "listings", action: "start"},{ method: :get}) do |f| %>
+  <%= submit_tag 'Post a Job' %> (FREE until beta ends)
+  <% end %>
+</p>
+
+
+<% @categories.desc(:max_listing_paid_utc).each do |category| %>
+  <% if category.listing_count > 0 %>
+
+    <h4 class="headline" style="margin:0;padding:0;"><%= category.name %> Jobs</h4>
+
+    <ul style="min-width:500px;list-style-type:none;width:100%;padding:0;margin:0;border-top: 1px solid #e3e3e3;">
+    <% category.listings.active.desc(:paid_utc).each do |listing| %>
+
+      <li <%= "class=premium_ad" if listing.is_premium %> style="padding:0 .3em;margin:0;border: 1px solid #e3e3e3;border-top:0;">
+
+        <a style="display:block;text-decoration:none;" href=<%=listing.get_url %>>
+
+          <span class="company_link"><%= "#{listing.company.name}"%></span>
+          <span style="font-size:.8em; font-weight:400;text-decoration: underline"><%= "#{listing.title}"%></span>
+          <span style="float:right; color: #787878; font-weight:400;" class="postingdate" dateval="<%= listing.paid_utc.to_i * 1000 %>">...</span>
+      </a></li>
+    <% end %>
+    </ul>
+    <p></p>
+  <% end %>
+<% end %>
+<% if @listsum == 0 %>
+  <p><strong>No jobs right now. Check back later!</strong></p>
+<% end %>
+<script>
+  var monthNames = [ "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December" ];
+  $(".postingdate").each(function(e){
+    //alert($(this).attr("dateval"));
+    span = $(this);
+    d = new Date(parseInt($(this).attr("dateval")));
+    datestring = monthNames[d.getMonth()] + " " + d.getDate();
+    span.html(datestring)
+  });
+</script>
+<p>P.S. don't forget to [<a href="http://blog.workdistributed.com/">subscribe to the blog</a>]</p>

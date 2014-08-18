@@ -1,0 +1,23 @@
+<div class="notice">
+  Your preview is below.
+  You may use your browser's back button to make changes. Scroll to the bottom for publishing options.
+</div>
+
+<%= render 'listing' %>
+
+<p class="error">
+  By publishing this ad and clicking either of the buttons below, you acknowledge that this job is OK for remote applicants.
+  Ads that break this rule will be subject to refund and removal from the site.
+</p>
+
+<%= form_tag(controller: "listings", action: "publish") do |f| %>
+  <p><%= submit_tag 'Looks good! Publish' %></p>
+<% end %>
+
+<div class="notice">
+  Make this a premium ad for just $25 (Limited Offer)
+  <%= render 'stripe_form' %>
+</div>
+<p>
+  Premium ads are highlighted on the site to receive better visibility and get posted to Twitter.
+</p>

@@ -1,0 +1,70 @@
+<h1>Post a Job</h1>
+<%= form_tag({controller: "listings", action: "preview"}, :multipart => true) do |f| %>
+  <% if @listing.errors.any? or @company.errors.any? %>
+    <div id="error_explanation" class="error">
+      <span style="color:#AA0000;">Please address the following <%= pluralize(@listing.errors.count + @company.errors.count, "error") %>:</span>
+      <ul>
+        <% @company.errors.messages.each do |key,msg| %>
+          <li style="color:#AA0000"><%= msg[0] %></li>
+        <% end %>
+        <% @listing.errors.messages.each do |key,msg| %>
+          <% if not key.eql?(:company) %>
+          <li style="color:#AA0000"><%= msg[0] %></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <h4>Your Company:</h4>
+  <p>
+    1. Company Name<br/>
+    <%= text_field :company, :name, {placeholder: 'e.g. "Acme, Inc."'} %>
+  </p>
+
+  <p>
+    2. Company Website<br/>
+    <%= text_field :company, :url, {placeholder: 'e.g. "http://acme-inc.com"'} %>
+  </p>
+
+  <p>
+    3. Company Location<br/>
+    <%= text_field :company, :location, {placeholder: 'e.g. "Anywhere, USA"'} %>
+  </p>
+
+  <p>
+    4. Email Address (this is where notifications/receipts about this posting will be sent)<br/>
+    <%= text_field :company, :email, {placeholder: 'e.g. "admin@acme-inc.com"'} %>
+  </p>
+
+  <p>
+    4. Upload a logo (optional)
+    <%= file_field :company, :logo %>
+  </p>
+
+  <h4>About the Position:</h4>
+  <p>
+    1. Job Title<br/>
+    <%= text_field :listing, :title, {placeholder: 'e.g. "Software Developer"'} %>
+  </p>
+
+  2. Category
+  <ul style="list-style-type: none; padding:0;margin:0;margin-left:1rem">
+    <% Category.all.asc(:name).each do |cat| %>
+    <li id=<%= "li_category_#{cat.name}" %>>
+      <%= radio_button :listing, :category_id, cat._id, :checked => @listing.category_id.eql?(cat._id) %>
+      <%= label :listing, :category_id, cat.name, :value=>cat._id %><br/>
+    </li>
+    <% end %>
+  </ul>
+  <p style="margin-top:1rem">
+    3. Job Description<br/>
+    <%= text_area :listing, :description, {placeholder: "Introduce your company, list skills/requirements, etc."} %>
+  </p>
+  <p>
+    4. How to Apply<br/>
+    <%= text_area :listing, :how_to_apply, {placeholder: 'e.g. "To apply, email us at: careers@yourcompany.com"'} %>
+  </p>
+  <p><br/>Now, let's see how your post looks:</p>
+  <%= submit_tag 'Preview Job Post' %><br/><br/>
+<% end %>

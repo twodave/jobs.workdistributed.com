@@ -1,0 +1,12 @@
+<%= form_tag(controller: "listings", action: "publish_prem") do |f| %>
+  <script
+  src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+  data-key="<%= @stripe.public_key %>"
+  data-amount="<%= @stripe.price_in_cents %>"
+  data-zip-code="true"
+  data-name="Jobs @workdistributed"
+  data-label="Pay via Stripe"
+  data-email="<%= @listing.company.email %>"
+  data-description="<%= @stripe.item_description %>">
+  </script>
+<% end %>

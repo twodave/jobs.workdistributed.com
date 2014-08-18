@@ -1,0 +1,17 @@
+<p style="margin:1.2rem 0;">
+  <strong><%=@listing.title %></strong>
+  <%= image_tag("data:image/png;base64,#{Base64.encode64(@listing.company.logo.data)}", :style =>"float:right; border: 1px solid #e3e3e3;padding:.5em; max-width:250px;") if @listing.company.logo %>
+  <% if @listing.company.url %>
+    <br/><%= link_to @listing.company.name, @listing.company.url %>
+  <% else %>
+    <br/><%= @listing.company.name %>
+  <% end %>
+  <% if @listing.company.location %>
+    <br/><%=@listing.company.location %>
+  <% end %>
+</p>
+<hr style="background:#e3e3e3;"/>
+<%=simple_format @listing.description, style: "margin:1.2rem 0;" %>
+<hr style="background:#e3e3e3;"/>
+<p style="margin:0;padding:0;"><strong>To Apply:</strong></p>
+<%= simple_format @listing.how_to_apply, style: "margin:0 0 1.2rem 0;" %>

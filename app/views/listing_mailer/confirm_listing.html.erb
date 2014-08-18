@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body style="font-family:Tahoma,sans-serif">
+<h1 style="font-size:1.5em;font-family:Georgia, serif">Thanks from the Jobs @workdistributed team.</h1>
+<p>
+  Forward-thinking employers like you encompass our vision for the future.
+  We'd like to thank you for taking the time to post your remote job ad with us.
+  Without you, our business wouldn't be able to continue.
+</p>
+<p>Thanks again,</p>
+<p style="font-family:Copse;font-size:1.1em">
+  Dave Sheldon<br/>
+  Founder @workdistributed
+</p>
+<p style="border-radius:.5em;padding:.5em;background:rgba(200,200,255,.5);">
+  Remember, if you run into problems with our site--or even if you just love us--we'd love to hear from you!
+  Just shoot an e-mail to <a style="font-size:1.1em;@font-face{font-family: 'Copse'; src:url(http://fonts.googleapis.com/css?family=Copse);}" href="mailto:info@workdistributed.com">info@workdistributed.com</a>, and a
+  real live human being will get back to you within a day or two.
+</p>
+<p style="border-radius:.5em;padding:.5em;background:rgba(255,255,170,.5);">
+  The below listing (found at: <%= @listing.get_url %>) will be active until <%= 30.days.since(@listing.paid_utc).strftime("%B %-d %T UTC") %>.
+</p>
+<%= render 'listing' %>
+</body>
+</html>

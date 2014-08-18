@@ -1,0 +1,47 @@
+<%
+dev_database = "workdistributed_com_test"
+dev_username = "twodave"
+dev_password = "Z$x5C^v7"
+dev_host = "kahana.mongohq.com:10032"
+
+test_database = "workdistributed_com_test"
+test_username = "twodave"
+test_password = "Z$x5C^v7"
+test_host = "kahana.mongohq.com:10032"
+
+prod_database = "workdistributed_com_prod"
+prod_username = "twodave"
+prod_password = "Z$x5C^v7"
+prod_host = "kahana.mongohq.com:10081" %>
+
+development:
+  sessions:
+    default:
+      database: <%= dev_database %>
+      username: <%= dev_username %>
+      password: <%= dev_password %>
+      hosts:
+        - <%= dev_host %>
+      options:
+test:
+  sessions:
+    default:
+      database: <%= test_database %>
+      username: <%= test_username %>
+      password: <%= test_password %>
+      hosts:
+        - <%= test_host %>
+      options:
+        consistency: :strong
+        # In the test environment we lower the retries and retry interval to
+        # low amounts for fast failures.
+        max_retries: 1
+        retry_interval: 0
+production:
+  sessions:
+    default:
+      database: <%= prod_database %>
+      username: <%= prod_username %>
+      password: <%= prod_password %>
+      hosts:
+        - <%= prod_host %>
